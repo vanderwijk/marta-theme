@@ -1,0 +1,98 @@
+@media only screen and (max-width: 768px) {
+    .collection {
+        width: 25%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .single-product .main figure {
+        width: 100%;
+        margin-right: 0;
+        clear: both;
+        float: none;
+    }
+    .single-product .main article {
+        width: 100%;
+        clear: both;
+        float: none;
+    }
+    .single-product .main h1 {
+        margin-top: 15px;
+    }
+    .project-information {
+        display: block;
+    }
+    .project-information .project-description,
+    .project-information .related-products {
+        padding: 0;
+    }
+}
+@media only screen and (max-width: 375px) {
+    body {
+        padding-top: 0;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .logged-in .header {
+        top: 0;
+    }
+    .header {
+        position: relative;
+    }
+    .header.affix {
+        box-shadow: none;
+    }
+    .header .nav {
+        display: none;
+        margin-top: 10px;
+    }
+    .header .nav.expand {
+        display: block;
+    }
+    .header .nav ul {
+        flex-direction: column;
+        background-image: none;
+    }
+    .header .nav li {
+        border-bottom: 1px solid #ddd;
+    }
+    .header .nav li.current-menu-item,
+    .post-type-archive-product .header li.menu-item-collection,
+    .single-product .header li.menu-item-collection {
+        background-color: #f05d29;
+        border-bottom: none;
+    }
+    .header .nav li a {
+        display: block;
+    }
+    .header .nav li.current-menu-item a,
+    .post-type-archive-product .header li.menu-item-collection a,
+    .single-product .header li.menu-item-collection a {
+        color: #fff;
+    }
+    .header .nav li:after {
+        content: none;
+    }
+    .header .nav a {
+        padding: 10px;
+    }
+    .collection {
+        width: 50%;
+    }
+    .moodboard {
+        width: 50%;
+    }
+    .featured,
+    .specifications,
+    .description {
+        width: 100%;
+    }
+    .specifications,
+    .description {
+        padding: 20px 0;
+    }
+    .carousel {
+        height: 170px;
+        margin-bottom: 10px;
+    }
+}

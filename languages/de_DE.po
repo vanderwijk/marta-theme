@@ -1,0 +1,136 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: marta;\n"
+"POT-Creation-Date: 2013-07-08 17:32+0100\n"
+"PO-Revision-Date: 2013-07-08 17:32+0100\n"
+"Last-Translator: Johan van der Wijk <johan@vanderwijk.nl>\n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../footer.php:6 ../page-about.php:16
+msgid "the company"
+msgstr "das Unternehmen"
+
+#: ../footer.php:7 ../page-about.php:17
+msgid "buy"
+msgstr "kaufen"
+
+#: ../footer.php:7 ../page-about.php:17
+msgid "Where to buy"
+msgstr "verkaufsstellen"
+
+#: ../footer.php:8 ../page-about.php:18
+msgid "contact"
+msgstr "kontakt"
+
+#: ../footer.php:9 ../page-about.php:19
+msgid "press"
+msgstr "presse"
+
+#: ../footer.php:10 ../page-about.php:20
+msgid "fairs"
+msgstr "messen"
+
+#: ../footer.php:10 ../page-about.php:20
+msgid "fairs and events"
+msgstr "messen und events"
+
+#: ../footer.php:11 ../page-about.php:21
+msgid "links"
+msgstr "links"
+
+#: ../footer.php:12 ../page-about.php:22
+msgid "terms"
+msgstr "agbs"
+
+#: ../footer.php:12 ../page-about.php:22
+msgid "terms and conditions of sale"
+msgstr "AGB's Verkauf"
+
+#: ../header.php:16
+msgid "the collection"
+msgstr "die kollektion"
+
+#: ../header.php:19 ../page-about.php:26
+msgid "collection"
+msgstr "kollektion"
+
+#: ../header.php:19
+msgid "All"
+msgstr "Alle"
+
+#: ../header.php:20
+msgid "Indoor"
+msgstr ""
+
+#: ../header.php:21
+msgid "Outdoor"
+msgstr ""
+
+#: ../index.php:19
+msgid "Nothing Found"
+msgstr "Nichts gefunden"
+
+#: ../index.php:23
+msgid ""
+"Apologies, but no results were found for the requested archive. Perhaps "
+"searching will help find a related post."
+msgstr ""
+"Entschuldige bitte, aber keine Ergebnisse wurden in diesem Archiv gefunden. "
+"Vielleicht suchen helfen ein Ergebniss zu finden."
+
+#: ../page-about.php:23
+msgid "disclaimer"
+msgstr "disclaimer"
+
+#: ../page-about.php:23
+msgid "legal disclaimer"
+msgstr "disclaimer"
+
+#: ../page-about.php:26 ../single-product.php:94
+msgid "to <i>the collection</i>"
+msgstr "nach <i>die Kollektion</i>"
+
+#: ../single-product.php:47
+msgid "design"
+msgstr "design"
+
+#: ../single-product.php:53
+msgid "dimensions (mm)"
+msgstr "abmessungen (mm)"
+
+#: ../single-product.php:59
+msgid "materials"
+msgstr "ausführung"
+
+#: ../single-product.php:65
+msgid "colour"
+msgstr "farbe"
+
+#: ../single-product.php:76
+msgid "price"
+msgstr "preis"
+
+#~ msgid "exhibitions"
+#~ msgstr "ausstellungen"
+
+#~ msgid "retailers"
+#~ msgstr "Verkaufsstellen"
+
+#~ msgid "Archives"
+#~ msgstr "Archive"
+
+#~ msgid "Meta"
+#~ msgstr "Meta"
+
+#~ msgid "Products"
+#~ msgstr "Produkte"

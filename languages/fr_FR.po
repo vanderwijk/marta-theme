@@ -1,0 +1,134 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: marta;\n"
+"POT-Creation-Date: 2013-07-08 17:30+0100\n"
+"PO-Revision-Date: 2013-07-08 17:31+0100\n"
+"Last-Translator: Johan van der Wijk <johan@vanderwijk.nl>\n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../footer.php:6 ../page-about.php:16
+msgid "the company"
+msgstr "l’entreprise"
+
+#: ../footer.php:7 ../page-about.php:17
+msgid "buy"
+msgstr "vente"
+
+#: ../footer.php:7 ../page-about.php:17
+msgid "Where to buy"
+msgstr "points de vente"
+
+#: ../footer.php:8 ../page-about.php:18
+msgid "contact"
+msgstr "contact"
+
+#: ../footer.php:9 ../page-about.php:19
+msgid "press"
+msgstr "presse"
+
+#: ../footer.php:10 ../page-about.php:20
+msgid "fairs"
+msgstr "salons"
+
+#: ../footer.php:10 ../page-about.php:20
+msgid "fairs and events"
+msgstr "salons et événements"
+
+#: ../footer.php:11 ../page-about.php:21
+msgid "links"
+msgstr "liens"
+
+#: ../footer.php:12 ../page-about.php:22
+msgid "terms"
+msgstr "conditions"
+
+#: ../footer.php:12 ../page-about.php:22
+msgid "terms and conditions of sale"
+msgstr "conditions générales de vente"
+
+#: ../header.php:16
+msgid "the collection"
+msgstr "la collection"
+
+#: ../header.php:19 ../page-about.php:26
+msgid "collection"
+msgstr "collection"
+
+#: ../header.php:19
+msgid "All"
+msgstr "Tous"
+
+#: ../header.php:20
+msgid "Indoor"
+msgstr "Intérieur "
+
+#: ../header.php:21
+msgid "Outdoor"
+msgstr "Extérieur"
+
+#: ../index.php:19
+msgid "Nothing Found"
+msgstr "Rien Touvé"
+
+#: ../index.php:23
+msgid ""
+"Apologies, but no results were found for the requested archive. Perhaps "
+"searching will help find a related post."
+msgstr ""
+
+#: ../page-about.php:23
+msgid "disclaimer"
+msgstr "clause"
+
+#: ../page-about.php:23
+msgid "legal disclaimer"
+msgstr "clause de non-responsabilité"
+
+#: ../page-about.php:26 ../single-product.php:94
+msgid "to <i>the collection</i>"
+msgstr "à <i>la collection</i>"
+
+#: ../single-product.php:47
+msgid "design"
+msgstr "désign"
+
+#: ../single-product.php:53
+msgid "dimensions (mm)"
+msgstr "dimensions (mm)"
+
+#: ../single-product.php:59
+msgid "materials"
+msgstr "matériaux"
+
+#: ../single-product.php:65
+msgid "colour"
+msgstr "couleur"
+
+#: ../single-product.php:76
+msgid "price"
+msgstr "prix"
+
+#~ msgid "exhibitions"
+#~ msgstr "salons"
+
+#~ msgid "retailers"
+#~ msgstr "points de vente"
+
+#~ msgid "fairs and exhibitions"
+#~ msgstr "salons et événements"
+
+#~ msgid "Archives"
+#~ msgstr "Archieven"
+
+#~ msgid "Meta"
+#~ msgstr "Meta"
