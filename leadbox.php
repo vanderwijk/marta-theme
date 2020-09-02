@@ -136,6 +136,7 @@
 
 .marta-modal-content input[type=submit] {
 	background-color: #f05d29;
+	border-color: #f05d29;
 }
 
 .marta-modal-content h2 {
