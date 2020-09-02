@@ -99,6 +99,7 @@
 	animation: marta-fadein .5s;
 
 	background-color: rgba(240, 93, 41, 0.5);
+	background-color: rgba(204, 204, 204, 0.7);
 
 	position: absolute;
 	top: 0;
