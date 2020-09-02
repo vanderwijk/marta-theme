@@ -14,6 +14,8 @@
 		</div>
 	</footer>
 
+	<?php // include get_theme_file_path( '/leadbox.php' ); ?>
+
 <?php wp_footer(); ?>
 
 </body>

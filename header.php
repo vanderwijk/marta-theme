@@ -35,7 +35,7 @@
 			<nav class="nav">
 				<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container' => '', 'items_wrap' => '<ul>%3$s</ul>' ) ); ?>
 			</nav>
-			<img class="feelgood" src="/wp-content/themes/marta/img/feelgood.jpg" alt="Feelgood Designs" />
+			<img class="feelgood" src="/wp-content/themes/marta-theme/img/feelgood.jpg" alt="Feelgood Designs" />
 		</div>
 	</header>
 	<div class="main clearfix">
