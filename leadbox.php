@@ -1,5 +1,5 @@
 <style>
-@keyframes md-bouncein {
+@keyframes marta-bouncein {
 	0% {
 		transform: scale(0.1);
 		opacity: 0;
@@ -13,7 +13,7 @@
 	}
 }
 
-@-webkit-keyframes md-fadein {
+@-webkit-keyframes marta-fadein {
 	0% {
 		opacity: 0;
 	}
@@ -22,7 +22,7 @@
 	}
 }
 
-@keyframes md-fadein {
+@keyframes marta-fadein {
 	0% {
 		opacity: 0;
 	}
@@ -31,7 +31,7 @@
 	}
 }
 
-@-webkit-keyframes md-fadeout {
+@-webkit-keyframes marta-fadeout {
 	0% {
 		opacity: 1;
 	}
@@ -40,7 +40,7 @@
 	}
 }
 
-@keyframes md-fadeout {
+@keyframes marta-fadeout {
 	0% {
 		opacity: 1;
 	}
@@ -49,7 +49,7 @@
 	}
 }
 
-@-webkit-keyframes md-rotation {
+@-webkit-keyframes marta-rotation {
 	0% {
 		-webkit-transform: rotate(0deg);
 		transform: rotate(0deg);
@@ -60,7 +60,7 @@
 	}
 }
 
-@keyframes md-rotation {
+@keyframes marta-rotation {
 	0% {
 		-webkit-transform: rotate(0deg);
 		transform: rotate(0deg);
@@ -76,10 +76,10 @@
 *:after {
 	box-sizing: border-box;
 }
-.modal-triggered .md-modal-wrap {
+.modal-triggered .marta-modal-wrap {
 	display: flex;
 }
-.md-modal-wrap {
+.marta-modal-wrap {
 	align-items: center;
 	display: none;
 	justify-content: center;
@@ -94,9 +94,9 @@
 	z-index: 1000;
 }
 
-.md-modal-overlay {
-	-webkit-animation: md-fadein .5s;
-	animation: md-fadein .5s;
+.marta-modal-overlay {
+	-webkit-animation: marta-fadein .5s;
+	animation: marta-fadein .5s;
 
 	background-color: rgba(240, 93, 41, 0.5);
 
@@ -110,11 +110,11 @@
 	z-index: 1000;
 }
 
-.md-modal {
+.marta-modal {
 	-webkit-overflow-scrolling: touch;
 
-	-webkit-animation: md-bouncein 1s;
-	animation: md-bouncein 1s;
+	-webkit-animation: marta-bouncein 1s;
+	animation: marta-bouncein 1s;
 
 	color: #000;
 	font-size: 16px;
@@ -124,7 +124,7 @@
 	z-index: 1001;
 }
 
-.md-modal-content {
+.marta-modal-content {
 	background: #fff;
 	margin: 0 auto;
 	max-width: 100%;
@@ -134,7 +134,11 @@
 	width: 570px;
 }
 
-.md-modal-content h2 {
+.marta-modal-content input[type=submit] {
+	background-color: #f05d29;
+}
+
+.marta-modal-content h2 {
 	font-family: 'PT Sans Narrow', sans-serif;
 	font-size: 32px;
 	font-weight: 400;
@@ -142,7 +146,7 @@
 	text-transform: uppercase;
 }
 
-.md-modal-content p {
+.marta-modal-content p {
 	font-family: 'PT Sans Narrow', sans-serif;
 	font-size: 16px;
 	font-weight: 500;
@@ -150,17 +154,16 @@
 	margin: 0 0 20px
 }
 
-.md-modal-content p:last-child,
-.md-modal-content .md-modal-share p:nth-last-child(3) {
+.marta-modal-content p:last-child {
 	margin: 0;
 }
 
-.md-modal-content a {
+.marta-modal-content a {
 	color: #14528d;
 	text-decoration: underline;
 }
 
-.md-modal-close {
+.marta-modal-close {
 	cursor: pointer;
 	font-family: 'PT Sans Narrow', sans-serif;
 	font-size: 30px;
@@ -170,7 +173,7 @@
 	top: 0;
 }
 
-.md-modal-content .accept {
+.marta-modal-content .accept {
 	background-color: #f05d29;
 	border-radius: 3px;
 	color: #fff;
@@ -183,61 +186,19 @@
 	text-transform: uppercase;
 }
 
-.md-modal-content .accept:active {
+.marta-modal-content .accept:active {
 	position: relative;
 	top: 1px;
 }
 
-.md-modal-content .md-modal-share {
-	display: none;
-}
-
-.md-modal.accepted .md-modal-cookie {
-	display: none;
-}
-
-.md-modal.accepted .md-modal-share {
-	-webkit-animation: md-fadein 2s;
-	animation: md-fadein 2s;
-	display: block;
-}
-
-.md-modal-content .md-modal-buttons {
-	margin-bottom: 10px;
-}
-
-.md-modal-content .md-modal-buttons a {
-	border-radius: 3px;
-	color: #fff;
-	display: inline-block;
-	font-family: 'PT Sans Narrow', sans-serif;
-	font-weight: 400;
-	margin: 5px;
-	padding: 15px 30px;
-	text-decoration: none;
-	text-transform: uppercase;
-}
-
-.md-modal-content .facebook {
-	background-color: #3b5998;
-}
-
-.md-modal-content .instagram {
-	background-color: #f1007c;
-}
-
-.md-modal-content .newsletter {
-	background-color: #80bb40;
-}
-
 @media only screen and (min-width: 1025px) {
-	.md-modal-content {
+	.marta-modal-content {
 		padding: 30px;
 	}
-	.md-modal-content .accept {
+	.marta-modal-content .accept {
 		margin: 30px 0 50px;
 	}
-	.md-modal-content .md-modal-buttons {
+	.marta-modal-content .marta-modal-buttons {
 		margin-bottom: 40px;
 	}
 }
@@ -259,111 +220,72 @@ function readCookie(name) {
 	}
 	return null;
 }
-var cookieStatus = readCookie('md_com_cookies');
+var cookieStatus = readCookie('marta_lead_cookie');
 
-// Show modal after 5 seconds unless cookies have been accepted
-if (cookieStatus !== 'accepted') {
+// Show modal after 5 seconds unless cookies have been completed
+if ((cookieStatus !== 'completed') && (cookieStatus !== 'dismissed')) {
 	window.onload = function() {
 		setTimeout(showModal, 5000)
 	};
 }
 
+// Set a cookie when closing the modal
+function setCookie(action) {
+
+	// Set expiry date to today + 1 year if lead completed, else + 2 days
+	var cookieExpirationDate = new Date;
+
+	if (action === 'completed') {
+		cookieExpirationDate.setFullYear(cookieExpirationDate.getFullYear() +1);
+	} else {
+		cookieExpirationDate.setDate(cookieExpirationDate.getDate() + 2);
+	}
+
+	function writeCookie() {
+		document.cookie='marta_lead_cookie=' + action + '; expires=' + cookieExpirationDate.toGMTString() + '; domain=.martaonline.eu; path=/;';
+	}
+	writeCookie();
+
+	modal.classList.add('completed');
+
+}
+
+// Hide the modal by removing the 'modal-triggered' class from the body
+function hideModal(action) {
+	body.classList.remove('modal-triggered');
+	setCookie(action);
+}
+
 // Show the modal by adding a class to the body of the document
 function showModal() {
 	body = document.body;
-	modal = document.getElementById('md-modal');
+	modal = document.getElementById('marta-modal');
 
 	// Show the modal
 	body.classList.add('modal-triggered');
 
-	// Google Analytics Event
-	/*
-	gtag('event', 'cookies_notice_displayed', {
-		'send_to': 'UA-44082856-1',
-		'event_category': 'cookies',
-		'event_label': ''
-	});
-	*/
-
-	// Hide the modal by removing the 'modal-triggered' class from the body
-	function hideModal() {
-		body.classList.remove('modal-triggered');
-
-		// Google Analytics Event
-		/*
-		gtag('event', 'cookies_notice_dismissed', {
-			'send_to': 'UA-44082856-1',
-			'event_category': 'cookies',
-			'event_label': ''
-		});
-		*/
-	}
-	var closeButton = document.getElementById('md-modal-close');
-	closeButton.onclick = hideModal;
-
 	// Hide the modal when pressing the 'escape' key
 	document.addEventListener('keydown', function(e) {
 		if (e.keyCode == 27) {
-			body.classList.remove('modal-triggered');
+			hideModal('dismissed');
 		}
 	});
 
 	// Hide the modal when clicking outside the modal area
 	modal.addEventListener('click', function (e) {
 		if (e.target === e.currentTarget) {
-			hideModal();
+			hideModal('dismissed');
 		}
 	});
 
-	// Set a cookie when clicking the 'accept' button and show the share modal
-	function acceptCookies() {
-
-		// Set expiry date to today + 1 year
-		var cookieExpirationDate = new Date;
-		cookieExpirationDate.setFullYear(cookieExpirationDate.getFullYear() +1);
-
-		function writeCookie() {
-			document.cookie='md_com_cookies=accepted; expires=' + cookieExpirationDate.toGMTString() + '; domain=.materialdistrict.com; path=/;';
-		}
-		writeCookie();
-
-		modal.classList.add('accepted');
-
-		// Google Analytics Event
-		/*
-		gtag('event', 'cookies_accepted', {
-			'send_to': 'UA-44082856-1',
-			'event_category': 'cookies',
-			'event_label': ''
-		});
-		*/
-
-	}
-	var acceptButton = document.getElementById('accept');
-	acceptButton.onclick = acceptCookies;
-
 }
 </script>
-<div class="md-modal-wrap">
-	<div class="md-modal-overlay"></div>
-	<div class="md-modal" id="md-modal">
-		<div class="md-modal-content">
-			<div class="md-modal-cookie">
-				<h2>Request a catalogue</h2>
-
-			</div>
-			<div class="md-modal-share">
-					<span class="md-modal-close" id="md-modal-close">&times;</span>
-					<h2>Never miss a great story</h2>
-					<p>Make sure you'll never miss a good material story again. We are happy to keep you posted the way you like!</p>
-					<p><small>Follow us on:</small></p>
-					<div class="md-modal-buttons">
-						<a href="https://www.facebook.com/materialdistrict/" target="_blank" class="facebook">Facebook</a>
-						<a href="https://www.instagram.com/materialdistrict/" target="_blank" class="instagram">Instagram</a>
-						<a href="https://materialdistrict.com/register/" class="newsletter">Newsletter</a>
-					</div>
-					<p><small>Follow us also on <a href="https://www.linkedin.com/company/materialdistrict" target="_blank">Linkedin</a>, <a href="https://twitter.com/materialdistrct" target="_blank">Twitter</a>, <a href="https://www.pinterest.com/materialdistrict/" target="_blank">Pinterest</a> and <a href="https://www.youtube.com/channel/UCR0-ih7DLs96uCXFoEKkQmA" target="_blank">Youtube</a>.</small></p>
-				</div>
+<div class="marta-modal-wrap">
+	<div class="marta-modal-overlay"></div>
+	<div class="marta-modal" id="marta-modal">
+		<div class="marta-modal-content">
+			<h2>Request information</h2>
+			<?php gravity_form( 'Lead', $display_title = false, $display_description = true, $display_inactive = false, $field_values = null, $ajax = true, $tabindex, $echo = true ); ?>
 		</div>
 	</div>
 </div>

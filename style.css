@@ -48,6 +48,7 @@ strong {
 }
 .filter button,
 .header button,
+.marta-modal button,
 input[type=submit] {
     background-color: #ccc;
     border: 1px solid #ccc;
@@ -59,6 +60,7 @@ input[type=submit] {
 }
 .filter button:active,
 .header button:active,
+.marta-modal button,
 input[type=submit]:active {
     position: relative;
     top: 1px;
