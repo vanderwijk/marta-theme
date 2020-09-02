@@ -139,11 +139,15 @@
 	border-color: #f05d29;
 }
 
+.marta-modal-content .gform_wrapper .gform_footer {
+	margin: 0;
+}
+
 .marta-modal-content h2 {
 	font-family: 'PT Sans Narrow', sans-serif;
 	font-size: 32px;
 	font-weight: 400;
-	margin: 0 0 20px;
+	margin: 30px 0 20px 0;
 	text-transform: uppercase;
 }
 
@@ -192,6 +196,9 @@ button.marta-modal-close {
 @media only screen and (min-width: 1025px) {
 	.marta-modal-content {
 		padding: 30px;
+	}
+	.marta-modal-content h2 {
+		margin: 0 0 20px;
 	}
 	.marta-modal-content .accept {
 		margin: 30px 0 50px;
