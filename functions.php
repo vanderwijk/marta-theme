@@ -66,7 +66,7 @@ function marta_scripts_styles() {
 		}
 
 		wp_enqueue_style( 'reset', get_stylesheet_directory_uri() . '/inc/reset.css', '', '1.0' );
-		wp_enqueue_style( 'marta', get_stylesheet_uri(), null, '1.1' );
+		wp_enqueue_style( 'marta', get_stylesheet_uri(), null, '1.2' );
 		wp_enqueue_style( 'responsive', get_stylesheet_directory_uri() . '/inc/responsive.css', '', '1.0' );
 
 	}
