@@ -164,14 +164,11 @@
 	text-decoration: underline;
 }
 
-.marta-modal-close {
+button.marta-modal-close {
 	cursor: pointer;
-	font-family: 'PT Sans Narrow', sans-serif;
-	font-size: 30px;
-	font-weight: 400;
 	position: absolute;
-	right: 12px;
-	top: 0;
+	right: 0;
+	top: 7px;
 }
 
 .marta-modal-content .accept {
@@ -285,6 +282,7 @@ function showModal() {
 	<div class="marta-modal-overlay"></div>
 	<div class="marta-modal" id="marta-modal">
 		<div class="marta-modal-content">
+			<button class="button marta-modal-close" onClick="hideModal('dismissed')">Close window</button>
 			<h2>Request information</h2>
 			<?php gravity_form( 'Lead', $display_title = false, $display_description = true, $display_inactive = false, $field_values = null, $ajax = true, $tabindex, $echo = true ); ?>
 		</div>
