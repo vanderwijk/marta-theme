@@ -230,10 +230,11 @@ function readCookie(name) {
 	}
 	return null;
 }
-var cookieStatus = readCookie('marta_lead_cookie');
+var cookieStatus = readCookie('marta_modal');
+var modalViews = readCookie('marta_modal_views');
 
 // Show modal after 5 seconds unless cookies have been completed
-if ((cookieStatus !== 'completed') && (cookieStatus !== 'dismissed')) {
+if ((cookieStatus !== 'completed') && (modalViews <= 3)) {
 	window.onload = function() {
 		setTimeout(showModal, 5000)
 	};
@@ -247,12 +248,21 @@ function setCookie(action) {
 
 	if (action === 'completed') {
 		cookieExpirationDate.setFullYear(cookieExpirationDate.getFullYear() +1);
+		cookieName = 'marta_modal';
+		cookieValue = 'completed';
+	} else if (action === 'viewed') {
+		cookieName = 'marta_modal_views';
+		modalViews++;
+		cookieValue = modalViews;
+		cookieExpirationDate.setDate(cookieExpirationDate.getDate() + 30);
 	} else {
-		cookieExpirationDate.setDate(cookieExpirationDate.getDate() + 2);
+		cookieName = 'marta_modal';
+		cookieValue = 'dismissed';
+		cookieExpirationDate.setFullYear(cookieExpirationDate.getFullYear() +1);
 	}
 
 	function writeCookie() {
-		document.cookie='marta_lead_cookie=' + action + '; expires=' + cookieExpirationDate.toGMTString() + '; domain=.martaonline.eu; path=/;';
+		document.cookie= cookieName + '=' + cookieValue + '; expires=' + cookieExpirationDate.toGMTString() + '; domain=.<?php echo $_SERVER['HTTP_HOST']; ?>; path=/;';
 	}
 	writeCookie();
 
@@ -270,6 +280,8 @@ function hideModal(action) {
 function showModal() {
 	body = document.body;
 	modal = document.getElementById('marta-modal');
+
+	setCookie('viewed');
 
 	// Show the modal
 	body.classList.add('modal-triggered');
