@@ -135,6 +135,10 @@
 	width: 570px;
 }
 
+.marta-modal-content .gform_wrapper {
+	margin-bottom: 0;
+}
+
 .marta-modal-content input[type=submit] {
 	background-color: #f05d29;
 	border-color: #f05d29;
