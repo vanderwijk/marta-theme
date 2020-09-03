@@ -15,7 +15,7 @@
 				if ( has_post_thumbnail() ) {
 					the_post_thumbnail( 'collection' );
 				} else {
-					echo '<img src="/wp-content/themes/marta/img/collection.gif" />';
+					echo '<img src="/wp-content/themes/marta-theme/img/collection.gif" />';
 				} ?>
 				<figcaption>
 					<p><?php the_title(); ?><br />

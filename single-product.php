@@ -78,7 +78,7 @@
 
 				<div class="carousel-cell">
 					<a href="<?php echo $image['sizes']['large']; ?>" data-size="<?php echo $image['sizes']['large-width'] . 'x' . $image['sizes']['large-height']; ?>">
-						<img src="/wp-content/themes/marta/img/collection.gif" data-flickity-lazyload="<?php echo $image['sizes']['medium']; ?>" />
+						<img src="/wp-content/themes/marta-theme/img/collection.gif" data-flickity-lazyload="<?php echo $image['sizes']['medium']; ?>" />
 					</a>
 				</div>
 
