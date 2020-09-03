@@ -203,7 +203,7 @@ button.marta-modal-close {
 		padding: 30px;
 	}
 	.marta-modal-content h2 {
-		margin: 0 0 20px;
+		margin: 5px 0 20px 0;
 	}
 	.marta-modal-content .accept {
 		margin: 30px 0 50px;
