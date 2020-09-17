@@ -76,8 +76,12 @@
 *:after {
 	box-sizing: border-box;
 }
+body.modal-triggered {
+	overflow: hidden;
+}
 .modal-triggered .marta-modal-wrap {
 	display: flex;
+	overflow: scroll;
 }
 .marta-modal-wrap {
 	align-items: top;
