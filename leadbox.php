@@ -247,7 +247,7 @@ function readCookie(name) {
 	return null;
 }
 var cookieStatus = readCookie('marta_modal');
-var modalViews = readCookie('marta_modal_views');
+var modalViews = readCookie('marta_modal_viewcount');
 
 // Show modal after 5 seconds unless cookies have been completed
 if ((cookieStatus !== 'completed') && (modalViews <= 3)) {
@@ -267,7 +267,7 @@ function setCookie(action) {
 		cookieName = 'marta_modal';
 		cookieValue = 'completed';
 	} else if (action === 'viewed') {
-		cookieName = 'marta_modal_views';
+		cookieName = 'marta_modal_viewcount';
 		modalViews++;
 		cookieValue = modalViews;
 		cookieExpirationDate.setDate(cookieExpirationDate.getDate() + 30);
