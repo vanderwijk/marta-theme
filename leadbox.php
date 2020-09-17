@@ -222,9 +222,6 @@ button.marta-modal-close {
 	.marta-modal-content .marta-modal-buttons {
 		margin-bottom: 40px;
 	}
-	body.modal-triggered {
-		overflow: hidden;
-	}
 
 }
 </style>
