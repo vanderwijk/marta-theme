@@ -84,7 +84,7 @@
 	display: none;
 	justify-content: center;
 
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 
@@ -208,6 +208,7 @@ button.marta-modal-close {
 
 	.marta-modal-wrap {
 		align-items: center;
+		position: fixed;
 	}
 	.marta-modal-content {
 		padding: 30px;
