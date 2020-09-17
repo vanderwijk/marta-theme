@@ -80,7 +80,7 @@
 	display: flex;
 }
 .marta-modal-wrap {
-	align-items: center;
+	align-items: top;
 	display: none;
 	justify-content: center;
 
@@ -120,7 +120,7 @@
 	color: #000;
 	font-size: 16px;
 	line-height: 1;
-	padding: 20px;
+	padding: 0;
 	width: 100%;
 	z-index: 1001;
 }
@@ -198,7 +198,17 @@ button.marta-modal-close {
 	top: 1px;
 }
 
+.marta-modal-content .gform_wrapper.gf_browser_chrome .gfield_checkbox li input, 
+.marta-modal-content .gform_wrapper.gf_browser_chrome .gfield_checkbox li input[type=checkbox], 
+.marta-modal-content .gform_wrapper.gf_browser_chrome .gfield_radio li input[type=radio] {
+	margin-top: 0;
+}
+
 @media only screen and (min-width: 1025px) {
+
+	.marta-modal-wrap {
+		align-items: center;
+	}
 	.marta-modal-content {
 		padding: 30px;
 	}
