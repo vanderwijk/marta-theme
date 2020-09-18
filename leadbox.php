@@ -124,7 +124,7 @@ body.modal-triggered {
 	color: #000;
 	font-size: 16px;
 	line-height: 1;
-	padding: 0;
+	padding: 20px;
 	width: 100%;
 	z-index: 1001;
 }
