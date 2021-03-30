@@ -4,8 +4,9 @@ Theme URI: https://martaonline.eu
 Author: Johan van der Wijk
 Author URI: https://vanderwijk.nl
 Description: WordPress theme for marta;
-Version: 2.1
+Version: 3.0
 Tags: light, minimalistic
+Template: blocksy
 Text Domain: marta
 */
 
@@ -13,397 +14,83 @@ Text Domain: marta
 
 /* BASE
 ======================================================================*/
-
-html {
-    box-sizing: border-box;
-}
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-}
-.clearfix:after {
-    clear: both;
-    content: "";
-    display: table;
-}
-body {
-    color: #333;
-    font: 100%/1em 'PT Sans Narrow', sans-serif;
-    padding-top: 68px;
-}
-a {
-    color: #f05d29;
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
-}
-a:active,
-a:focus {
-    outline: none;
-}
-strong {
-    font-weight: 600;
-}
-.filter button,
-.header button,
 .marta-modal button,
 input[type=submit] {
-    background-color: #ccc;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    color: #fff;
-    font: 100%/1em 'PT Sans Narrow', sans-serif;
-    margin: 0 5px 0 0;
-    padding: 4px 7px;
+	background-color: #ccc;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	color: #fff;
+	font: 100%/1em 'PT Sans Narrow', sans-serif;
+	margin: 0 5px 0 0;
+	padding: 4px 7px;
 }
-.filter button:active,
-.header button:active,
+
 .marta-modal button,
 input[type=submit]:active {
-    position: relative;
-    top: 1px;
+	position: relative;
+	top: 1px;
 }
+
 button:focus,
 input[type=submit]:focus {
-    background-color: #f29e7b;
-    border-color: #f29e7b;
-    outline: none;
+	background-color: #f29e7b;
+	border-color: #f29e7b;
+	outline: none;
 }
 
-/* HEADER
+/* QUOTE
 ======================================================================*/
-
-.header {
-    background-color: #fff;
-    color: #002638;
-    left: 0;
-    padding: 20px 10px;
-    position: fixed;
-    transition: box-shadow linear .2s;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-.header.affix {
-    box-shadow: 0 1px 3px rgba( 0, 0, 0, 0.12);
-}
-.logged-in .header {
-    top: 32px;
-}
-.header .wrap {
-    margin: 0 auto;
-    max-width: 960px;
-    position: relative;
-}
-.menu-toggle {
-    display: none;
-    margin: 0;
-}
-.feelgood {
-    position: absolute;
-    right: 0;
-    top: 2px;
-    height: auto;
-    max-width: 170px;
-}
-
-/* NAVIGATION
-======================================================================*/
-
-.nav ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.nav a {
-    color: #002638;
-    border-bottom: 2px solid transparent;
-    display: inline-block;
-    padding: 5px 2px;
-    transition: border-color linear .2s;
-}
-.nav a:hover {
-    text-decoration: none;
-}
-.nav .current-menu-item a,
-.post-type-archive-product .menu-item-collection a,
-.post-type-archive-project .menu-item-project a,
-.single-product .menu-item-collection a {
-    border-color: #f05d29;
-}
-.nav li:after {
-    content: '•';
-    padding: 0 10px;
-}
-.nav li:last-child:after {
-    content: none;
-}
-.nav .highlight a {
-	color: #f05d29;
-}
-
-/* MAIN
-======================================================================*/
-
-.main {
-    margin: 0 auto 20px auto;
-    max-width: 980px;
-    padding: 0 10px;
-    position: relative;
-}
-.entry-title,
-.page article h2 {
-    color: #f05d29;
-    font-size: 28px;
-    line-height: 1;
-    margin: .3em 0 1em 0;
-    text-transform: lowercase;
-}
-.page article h3 {
-    color: #333;
-    font-size: 20px;
-    line-height: 1;
-    margin: 0 0 .5em 0;
-    text-transform: lowercase;
-}
-.page article p {
-    line-height: 1.5;
-    margin: 0 0 1em 0;
-}
-
-/* COLLECTION
-======================================================================*/
-
-.filter {
-    margin-bottom: 15px;
-}
-.collection {
-    text-align: center;
-    width: 20%;
-}
-.collection img {
-    height: auto;
-    max-width: 100%;
-    position: relative;
-    width: 100%;
-    z-index: -10;
-}
-.collection p {
-    padding: 0 5px 10px 5px;
-}
-.collection a {
-    color: #fff;
-    display: block;
-    transition: background-color .5s ease-in-out;
-}
-.collection a:hover {
-    background-color: rgba( 0, 0, 0, 0.12);
-    text-decoration: none;
-    z-index: 100;
-}
-
-/* HOME
-======================================================================*/
-
-.home .main {
-    padding: 0 5px;
-}
-.moodboard {
-    line-height: 0;
-    /* fix for whitespace issue */
-    overflow: hidden;
-    padding: 5px;
-    text-align: center;
-    width: 25%;
-}
-.moodboard img {
-    height: auto;
-    max-width: 100%;
-    width: auto;
-}
-.moodboard a {
-    display: block;
-    position: relative;
-}
-.moodboard h2 {
-    background-color: rgba( 255, 255, 255, 0.7);
-    bottom: -32px;
-    color: #002638;
-    line-height: 2em;
-    position: absolute;
-    transition: bottom ease-out .2s;
-    width: 100%;
-    z-index: 1;
-}
-.moodboard:hover h2 {
-    bottom: 0;
-}
-.moodboard h3 {
-	line-height: 1em;
-	text-align: right;
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	text-transform: uppercase;
-	font-weight: 600;
-	font-size: 12px;
-	padding: 4px;
-	border-radius: 3px;
+.woocommerce-cart-form__contents .product-price,
+.woocommerce-cart-form__contents .product-subtotal {
 	color: #fff;
-	background-color: #f05d29;
 }
 
-/* PRODUCT
-======================================================================*/
-
-.featured,
-.specifications {
-    width: 50%;
-    float: left;
-}
-.featured {
-    text-align: center;
-}
-.featured img {
-    max-width: 100%;
-    height: auto;
-}
-.specifications table {
-    border: none;
-    width: 100%;
-}
-.specifications {
-    padding: 30px 0;
-}
-.description p {
-    line-height: 1.5;
-    margin: 0 0 1em 0;
-}
-.specifications h1 {
-    line-height: normal;
-    font-size: 36px;
-    font-weight: 600;
-    margin-bottom: .5em;
-}
-.specifications h1 span {
-    font-size: .8em;
-}
-.specifications td {
-    padding: 0 10px 10px 0;
-    vertical-align: top;
-}
-.specifications td.nowrap {
-    white-space: nowrap;
-}
-.specifications .design td,
-.specifications .characteristics td,
-.specifications .price td {
-    padding-bottom: 40px;
+.woocommerce-order-overview__total.total,
+.woocommerce-order-overview__payment-method.method,
+.woocommerce-order-overview__order.order {
+	display: none;
 }
 
-/* PROJECT
-======================================================================*/
-
-.information {
-    display: flex;
-}
-.information .description,
-.information .related {
-    flex: 1;
-}
-.information .description {
-    padding-right: 30px;
-}
-.information .related {
-    padding-left: 30px;
-}
-.gallery {
-    margin-bottom: 30px;
-}
-.information {
-    margin-bottom: 30px;
-}
-.information p,
-.related ul {
-    line-height: 1.5;
-    margin: 0 0 1em 0;
-}
-.post-type-archive-project .moodboard h2 {
-    bottom: 0;
-}
-.post-type-archive-project .moodboard:hover h2 {
-    bottom: -32px;
-}
-
-
-
-/* CAROUSEL
-======================================================================*/
-
-.carousel {
-    height: 280px;
-}
-.carousel-cell {
-    height: 100%;
-    margin: 0 10px 0 0;
-}
-.carousel .flickity-page-dots {
-    display: none;
-}
-.carousel .flickity-slider img {
-    width: auto;
-    height: 100%;
-}
-.carousel-cell-image {
-    transition: opacity 0.4s;
-    opacity: 0;
-}
-.carousel-cell-image.flickity-lazyloaded,
-.carousel-cell-image.flickity-lazyerror {
-    opacity: 1;
+.woocommerce-table.woocommerce-table--order-details.shop_table.order_details,
+.woocommerce-order-details,
+.woocommerce-customer-details {
+	display: none;
 }
 
 /* PAGE
 ======================================================================*/
 
-.back {
-    color: #595959;
-}
-.back i {
-    font-weight: 700;
-}
-.page .main {
-    overflow: hidden;
-    margin-top: 40px;
-}
 #gforms_confirmation_message {
-    color: #f05d29;
-    margin: 15px 0;
-    border: 1px solid #f05d29;
-    padding: 10px
+	color: #f05d29;
+	margin: 15px 0;
+	border: 1px solid #f05d29;
+	padding: 10px
 }
+
 .page .gform_wrapper .gform_body .description,
 .gform_wrapper .gform_body .gfield_description,
 .gform_wrapper .gform_body .gsection_description,
 .gform_wrapper .gform_body .instruction {
-    font: 100%/1em 'PT Sans Narrow', sans-serif;
+	font: 100%/1em 'PT Sans Narrow', sans-serif;
 }
+
 .page .gform_wrapper li.gfield.gfield_error {
-    border-bottom: 1px solid #f05d29;
-    border-top: 1px solid #f05d29;
-    background: #fdeee7;
+	border-bottom: 1px solid #f05d29;
+	border-top: 1px solid #f05d29;
+	background: #fdeee7;
 }
+
 .page .gform_wrapper div.validation_error,
 .page .gform_wrapper .gfield_error .gfield_label,
 .page .gform_wrapper .gfield_required,
 .page .gform_wrapper .validation_message {
-    color: #f05d29;
+	color: #f05d29;
 }
+
 .page .gform_wrapper div.validation_error {
-    border: none;
+	border: none;
 }
+
 .page .gform_wrapper li.gfield_error input[type="text"],
 .page .gform_wrapper li.gfield_error input[type="url"],
 .page .gform_wrapper li.gfield_error input[type="email"],
@@ -411,124 +98,79 @@ input[type=submit]:focus {
 .page .gform_wrapper li.gfield_error input[type="number"],
 .page .gform_wrapper li.gfield_error input[type="password"],
 .page .gform_wrapper li.gfield_error textarea {
-    border: 1px solid #f05d29;
+	border: 1px solid #f05d29;
 }
+
 .page .gform_wrapper li.gfield_error div.ginput_complex.ginput_container label,
 .page .gform_wrapper li.gfield_error ul.gfield_checkbox,
 .page .gform_wrapper li.gfield_error ul.gfield_radio {
-    color: #f05d29;
+	color: #f05d29;
 }
+
 .page .gform_wrapper .hide-label .gfield_label {
-    display: none;
+	display: none;
 }
 
 /* DOWNLOADS
 ======================================================================*/
 
 ul.dlm-downloads {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
+
 .dlm-downloads a {
-    color: #333;
+	color: #333;
 }
+
 .dlm-downloads li {
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
+
 .dlm-downloads-image {
-    margin-bottom: 3em;
+	margin-bottom: 3em;
 }
+
+.dlm-downloads-image {
+	padding-left: 0;
+}
+
 .dlm-downloads-image li {
-    display: inline-block;
-    margin: 0 10px 10px 0;
-    position: relative;
+	display: inline-block;
+	margin: 0 10px 10px 0;
+	position: relative;
 }
+
 .download-link.image {
-    display: block;
-    line-height: 0;
-}
-.download-link.image .attachment-thumbnail {
-    border: 1px solid #ddd;
-    height: 150px;
-    margin-bottom: 5px;
-    width: 150px;
-    z-index: 10;
-}
-.download-link.image .attachment-large {
-    border: 1px solid #ddd;
-    display: none;
-    height: auto;
-    left: 20px;
-    max-width: 250px;
-    position: absolute;
-    top: 20px;
-    z-index: 100;
-}
-.download-link.image:hover .attachment-large {
-    border-color: #ddd;
-    display: block!important;
-}
-.filesize {
-    font-size: 12px;
-    line-height: 1em;
-    text-align: center;
-}
-
-/* FOOTER
-======================================================================*/
-
-.footer {
-    padding: 20px 10px;
-    width: 100%;
-}
-.footer .wrap {
-    margin: 0 auto;
-    max-width: 960px;
-}
-.site-title {
-    float: left;
-    height: 28px;
-    margin: 0 20px 5px 0;
-    width: 103px;
-}
-.site-title h1 {
-    background-image: url('img/marta.svg');
-    background-repeat: no-repeat;
-    background-size: 103px 28px;
-    height: 28px;
-    overflow: hidden;
-    text-indent: 100%;
-    width: 103px;
-}
-.footer .nav {
-    float: left;
-}
-.social {
-    align-items: flex-end;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-.social li {
-    margin: 0 0 10px 10px;
-}
-.social a {
-    background-repeat: no-repeat;
-    background-size: 30px 30px;
-    display: inline-block;
-    height: 30px;
-    width: 30px;
-}
-.social svg {
 	display: block;
-	color: #595959;
-	fill: #595959;
+	line-height: 0;
 }
-.social a.facebook:hover svg {
-	fill: #3B5998;
+
+.download-link.image .attachment-thumbnail {
+	border: 1px solid #ddd;
+	height: 150px;
+	margin-bottom: 5px;
+	width: 150px;
+	z-index: 10;
 }
-.social a.instagram:hover svg {
-	fill: #e95950;
+
+.download-link.image .attachment-large {
+	border: 1px solid #ddd;
+	display: none;
+	height: auto;
+	left: 20px;
+	max-width: 250px;
+	position: absolute;
+	top: 20px;
+	z-index: 100;
 }
-.social a.pinterest:hover svg {
-	fill: #cb2027;
+
+.download-link.image:hover .attachment-large {
+	border-color: #ddd;
+	display: block !important;
+}
+
+.filesize {
+	font-size: 12px;
+	line-height: 1em;
+	text-align: center;
 }
