@@ -1,4 +1,5 @@
 <?php
+
 function marta_setup() {
 	load_theme_textdomain( 'marta', get_template_directory() . '/languages' );
 }
@@ -38,42 +39,42 @@ function marta_change_tabs_order( $tabs ) {
 }
 add_filter( 'woocommerce_product_tabs', 'marta_change_tabs_order' );
 
-
 // Toon gerelateerde projecten op productpagina's
 function related_projects() {
-	$related_projects = get_posts (
-		array (
-			'post_type' => 'project',
-			'meta_query' => array (
-				array (
-					'key' => 'related_products',
-					'value' => '"' . get_the_ID() . '"',
-					'compare' => 'LIKE'
+	if ( is_product() ) {
+		$related_projects = get_posts (
+			array (
+				'post_type' => 'project',
+				'meta_query' => array (
+					array (
+						'key' => 'related_products',
+						'value' => '"' . get_the_ID() . '"',
+						'compare' => 'LIKE'
+					)
 				)
 			)
-		)
-	); ?>
-	<?php if( $related_projects ) : ?>
-		<section class="related products">
-			<h2><?php _e( 'Related projects', 'marta' ); ?></h2>
-			<ul>
-			<?php foreach( $related_projects as $project ): ?>
-				<li>
-					<a href="<?php echo get_permalink( $project->ID ); ?>">
-						<?php echo get_the_title( $project->ID ); ?>
-					</a>
-				</li>
-			<?php endforeach; ?>
-			</ul>
-		</section>
-	<?php endif;
+		); ?>
+		<?php if ( $related_projects ) { ?>
+			<section class="related products">
+				<h2><?php _e( 'Related projects', 'marta' ); ?></h2>
+				<ul>
+				<?php foreach( $related_projects as $project ): ?>
+					<li>
+						<a href="<?php echo get_permalink( $project->ID ); ?>">
+							<?php echo get_the_title( $project->ID ); ?>
+						</a>
+					</li>
+				<?php endforeach; ?>
+				</ul>
+			</section>
+		<?php }
+	}
 }
 add_action( 'woocommerce_after_main_content', 'related_projects' );
 
-
 function related_products() {
 	$related_products = get_field('related_products');
-	if ( $related_products ): ?>
+	if ( $related_products ) { ?>
 		<section class="related products">
 			<h2 style="font-size: 20px; margin-top: 20px;"><?php _e( 'Items used in this project', 'marta' ); ?></h2>
 			<ul>
@@ -86,7 +87,7 @@ function related_products() {
 			<?php endforeach; ?>
 			</ul>
 		</section>
-	<?php endif;
+	<?php }
 }
 add_action( 'blocksy:single:content:bottom', 'related_products' );
 
