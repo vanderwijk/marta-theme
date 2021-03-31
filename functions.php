@@ -5,6 +5,10 @@ function marta_setup() {
 }
 add_action( 'after_setup_theme', 'marta_setup' );
 
+add_filter('jpeg_quality', function($arg) {
+	return 100;
+});
+
 // Scripts en styles voor front-end
 function marta_scripts_styles() {
 	if ( ! is_admin() ) {
