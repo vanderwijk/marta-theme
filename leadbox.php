@@ -250,7 +250,7 @@ var cookieStatus = readCookie('marta_modal');
 var modalViews = readCookie('marta_modal_views');
 
 // Show modal after 5 seconds unless cookies have been completed
-if ((cookieStatus !== 'completed') && (modalViews <= 3)) {
+if ((cookieStatus !== 'completed') && (modalViews <= 1)) {
 	window.onload = function() {
 		setTimeout(showModal, 5000)
 	};
