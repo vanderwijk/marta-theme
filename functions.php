@@ -22,6 +22,12 @@ function marta_scripts_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'marta_scripts_styles' );
 
+// Facebook domein verificatie
+function marta_meta_tags() {
+	echo '<meta name="facebook-domain-verification" content="kg6741mrakdzy5uk001ir0gb2j0wsh" />';
+}
+add_action('wp_head', 'marta_meta_tags');
+
 // Maak het mogelijk eps en ai bestanden te uploaden in WordPress
 function custom_upload_mimes ( $existing_mimes = array() ) {
 	$existing_mimes['eps'] = 'mime/type';
