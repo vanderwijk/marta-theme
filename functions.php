@@ -16,7 +16,7 @@ function marta_scripts_styles() {
 		wp_enqueue_script( 'script', get_stylesheet_directory_uri() . '/inc/script.js', array( 'jquery' ), '1.0', true );
 
 		wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-		wp_enqueue_style( 'marta', get_stylesheet_uri(), null, '3.2' );
+		wp_enqueue_style( 'marta', get_stylesheet_uri(), null, '3.3' );
 
 	}
 }
