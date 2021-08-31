@@ -175,8 +175,8 @@ ul.dlm-downloads {
 	text-align: center;
 }
 @media screen and (max-width: 600px) {
-	.home .wp-block-cover.is-position-bottom-left {
-		min-height: 450px!important;
+	.home .wp-block-cover {
+		min-height: 600px!important;
 		padding: 0;
 	}
 }
