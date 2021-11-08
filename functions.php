@@ -22,6 +22,28 @@ function marta_scripts_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'marta_scripts_styles' );
 
+// Override WooCommerce product archive thumbnails
+add_filter( 'woocommerce_get_image_size_thumbnail', function( $size ) {
+	return array(
+		'width'  => 600,
+		'height' => 600,
+		'crop'   => 1,
+	);
+});
+
+// Large image size for product slider
+add_filter('blocksy:woocommerce:single_product:flexy-args', function ($args) {
+	return array_merge( (array) $args, [
+		'size' => 'large',
+	] );
+});
+
+// Remove product image from product slider
+add_filter('blocksy:woocommerce:product-view:product_gallery_images', function ($attachment_ids) {
+	$attachment_ids[] = array_shift($attachment_ids);
+	return $attachment_ids;
+});
+
 // Facebook domein verificatie
 function marta_meta_tags() {
 	echo '<meta name="facebook-domain-verification" content="kg6741mrakdzy5uk001ir0gb2j0wsh" />';
