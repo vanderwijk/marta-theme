@@ -141,3 +141,31 @@ function marta_remove_my_account_links( $menu_links ){
 	return $menu_links;
 }
 add_filter ( 'woocommerce_account_menu_items', 'marta_remove_my_account_links' );
+
+add_action(
+	'woocommerce_before_shop_loop_item_title',
+	function () {
+		global $product;
+
+		echo '<style>.badge_new {
+			line-height: 1em;
+			text-align: right;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			text-transform: uppercase;
+			font-weight: 600;
+			font-size: 12px;
+			padding: 4px;
+			border-radius: 3px;
+			color: #fff;
+			background-color: #f05d29;
+			z-index: 1;
+		}</style>';
+
+		if ( get_field( '_product_new' )) {
+			echo '<h3 class="badge_new">' . __('New', 'marta') . '</h3>';
+		}
+
+	}
+);
