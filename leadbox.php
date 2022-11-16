@@ -324,7 +324,7 @@ function showModal() {
 		<div class="marta-modal-content">
 			<button class="button marta-modal-close" onClick="hideModal('dismissed')">Close window</button>
 			<h2>Nice to meet you!</h2>
-			<?php gravity_form( 'Lead', $display_title = false, $display_description = true, $display_inactive = false, $field_values = null, $ajax = true, $tabindex, $echo = true ); ?>
+			<?php gravity_form( 'Lead', $display_title = false, $display_description = true, $display_inactive = false, $field_values = null, $ajax = true, $tabindex = null, $echo = true ); ?>
 		</div>
 	</div>
 </div>
