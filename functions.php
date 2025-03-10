@@ -87,7 +87,7 @@ function related_projects() {
 			)
 		); ?>
 		<?php if ( $related_projects ) { ?>
-			<section class="related products">
+			<section class="related products is-width-constrained">
 				<h2><?php _e( 'Related projects', 'marta' ); ?></h2>
 				<ul>
 				<?php foreach( $related_projects as $project ): ?>
@@ -107,7 +107,7 @@ add_action( 'woocommerce_after_main_content', 'related_projects' );
 function related_products() {
 	$related_products = get_field('related_products');
 	if ( $related_products ) { ?>
-		<section class="related products">
+		<section class="related products is-width-constrained">
 			<h2 style="font-size: 20px; margin-top: 20px;"><?php _e( 'Items used in this project', 'marta' ); ?></h2>
 			<ul>
 			<?php foreach( $related_products as $product) : ?>
