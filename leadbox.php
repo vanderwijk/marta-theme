@@ -135,7 +135,6 @@ body.modal-triggered {
 	max-width: 100%;
 	padding: 20px;
 	position: relative;
-	text-align: center;
 	width: 570px;
 }
 
@@ -158,6 +157,7 @@ body.modal-triggered {
 	font-weight: 400;
 	margin: 30px 0 20px 0;
 	text-transform: uppercase;
+	text-align: center;
 }
 
 .marta-modal-content p {
