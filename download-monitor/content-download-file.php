@@ -5,7 +5,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
-}
+} ?>
 
 <div class="download-item">
 	<?php if ( has_post_thumbnail( $dlm_download->get_the_id() ) ) : ?>
