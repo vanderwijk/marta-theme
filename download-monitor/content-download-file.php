@@ -11,6 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="download-item">
 	<?php 
+	// Enable debugging to see what we're working with
+	$download_id = null;
+	
 	// Method 1: Try the standard WordPress way first
 	$download_id = get_the_ID();
 	
@@ -29,10 +32,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$download_id = $dlm_download->post->ID;
 	}
 	
-	// Debug output (uncomment to troubleshoot)
-	// echo '<!-- Download ID: ' . $download_id . ' -->';
-	// echo '<!-- Object methods: ' . implode(', ', get_class_methods($dlm_download)) . ' -->';
-	// if ( isset( $dlm_download->post ) ) echo '<!-- Has post object -->';
+	// Method 5: Try other common property names
+	if ( !$download_id && isset( $dlm_download->ID ) ) {
+		$download_id = $dlm_download->ID;
+	}
+	
+	// Method 6: Try post_id property
+	if ( !$download_id && isset( $dlm_download->post_id ) ) {
+		$download_id = $dlm_download->post_id;
+	}
+	
+	// Extensive debug output - uncomment these lines to see what's available
+	echo '<!-- Download ID found: ' . ($download_id ? $download_id : 'NONE') . ' -->';
+	echo '<!-- Object class: ' . get_class($dlm_download) . ' -->';
+	echo '<!-- Available methods: ' . implode(', ', get_class_methods($dlm_download)) . ' -->';
+	echo '<!-- Object properties: ' . implode(', ', array_keys(get_object_vars($dlm_download))) . ' -->';
+	if ( isset( $dlm_download->post ) ) echo '<!-- Has post object: YES -->';
+	else echo '<!-- Has post object: NO -->';
 	
 	if ( $download_id && has_post_thumbnail( $download_id ) ) : ?>
 		<div class="download-thumbnail">
