@@ -8,9 +8,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 } ?>
 
 <div class="download-item">
-	<?php if ( has_post_thumbnail( $dlm_download->get_the_id() ) ) : ?>
+	<?php if ( has_post_thumbnail( $dlm_download->get_id() ) ) : ?>
 		<div class="download-thumbnail">
-			<?php echo get_the_post_thumbnail( $dlm_download->get_the_id(), 'thumbnail' ); ?>
+			<?php echo get_the_post_thumbnail( $dlm_download->get_id(), 'thumbnail' ); ?>
 		</div>
 	<?php endif; ?>
 	<div class="download-content">
