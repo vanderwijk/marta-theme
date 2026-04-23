@@ -171,3 +171,16 @@ add_action(
 );
 
 add_filter( 'gform_enable_legacy_markup', '__return_false' );
+
+
+add_action( 'woocommerce_review_order_before_payment', 'add_shipping_invoice_notice' );
+
+function add_shipping_invoice_notice() {
+    echo '<div class="woocommerce-info">
+        <strong>Please note: shipping costs will be invoiced separately.</strong><br>
+        Shipping costs are not yet included in the amount shown above. After placing 
+        your order, you will receive an invoice by email with both the product costs 
+        and the final shipping costs. Payment is due upon receipt of this invoice. 
+        By placing your order, you agree to this payment arrangement.
+    </div>';
+}
