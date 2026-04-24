@@ -62,7 +62,7 @@ add_filter( 'upload_mimes', 'custom_upload_mimes' );
 function marta_hide_product_price( $price ) {
 	return '';
 }
-add_filter( 'woocommerce_get_price_html', 'marta_hide_product_price' );
+//add_filter( 'woocommerce_get_price_html', 'marta_hide_product_price' );
 
 // Wijzig tab-volgorde voor single product
 function marta_change_tabs_order( $tabs ) {
@@ -142,6 +142,23 @@ function marta_remove_my_account_links( $menu_links ){
 }
 add_filter ( 'woocommerce_account_menu_items', 'marta_remove_my_account_links' );
 
+// Hide on-sale products on the main shop page
+function marta_exclude_sale_products_from_shop( $query ) {
+	if ( is_admin() || ! $query->is_main_query() || ! is_shop() ) {
+		return;
+	}
+
+	$sale_product_ids = wc_get_product_ids_on_sale();
+
+	if ( empty( $sale_product_ids ) ) {
+		return;
+	}
+
+	$existing_excluded_ids = (array) $query->get( 'post__not_in', array() );
+	$query->set( 'post__not_in', array_unique( array_merge( $existing_excluded_ids, $sale_product_ids ) ) );
+}
+add_action( 'woocommerce_product_query', 'marta_exclude_sale_products_from_shop' );
+
 add_action(
 	'woocommerce_before_shop_loop_item_title',
 	function () {
@@ -176,7 +193,7 @@ add_filter( 'gform_enable_legacy_markup', '__return_false' );
 add_action( 'woocommerce_review_order_before_payment', 'add_shipping_invoice_notice' );
 
 function add_shipping_invoice_notice() {
-    echo '<div class="woocommerce-info">
+    echo '<div class="woocommerce-info" style="display: block;">
         <strong>Please note: shipping costs will be invoiced separately.</strong><br>
         Shipping costs are not yet included in the amount shown above. After placing 
         your order, you will receive an invoice by email with both the product costs 
