@@ -127,7 +127,7 @@ add_action( 'blocksy:single:content:bottom', 'related_products' );
 function your_function() {
 	include get_theme_file_path( '/leadbox.php' );
 }
-add_action( 'wp_footer', 'your_function' );
+//add_action( 'wp_footer', 'your_function' );
 
 // My account
 function marta_remove_my_account_links( $menu_links ){
