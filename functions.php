@@ -64,6 +64,15 @@ function marta_hide_product_price( $price ) {
 }
 //add_filter( 'woocommerce_get_price_html', 'marta_hide_product_price' );
 
+function marta_change_out_of_stock_message( $availability, $product ) {
+	if ( $product && ! $product->is_in_stock() ) {
+		return 'Contact us for pricing and availability';
+	}
+
+	return $availability;
+}
+add_filter( 'woocommerce_get_availability_text', 'marta_change_out_of_stock_message', 10, 2 );
+
 // Wijzig tab-volgorde voor single product
 function marta_change_tabs_order( $tabs ) {
 	$tabs['additional_information']['priority'] = 5;
