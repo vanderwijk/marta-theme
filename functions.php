@@ -83,9 +83,9 @@ add_filter( 'woocommerce_variation_is_purchasable', function( $purchasable, $var
 add_action( 'woocommerce_single_product_summary', function() {
     global $product;
     if ( $product && ! $product->is_purchasable() ) {
-        echo '<p class="contact-for-pricing">' .
-             esc_html__( 'Contact us for pricing and availability', 'marta' ) .
-             ' <a href="' . esc_url( '/contact/' ) . '">contact</a></p>';
+		echo '<p class="contact-for-pricing"><a href="' . esc_url( '/contact/' ) . '">' .
+			 esc_html__( 'Contact us', 'marta' ) .
+			 '</a> ' . esc_html__( 'for pricing and availability', 'marta' ) . '</p>';
     }
 }, 35 );
 
