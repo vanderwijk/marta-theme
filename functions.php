@@ -73,6 +73,36 @@ function marta_change_out_of_stock_message( $availability, $product ) {
 }
 add_filter( 'woocommerce_get_availability_text', 'marta_change_out_of_stock_message', 10, 2 );
 
+
+// Markeer als niet bestelbaar bij ontbrekende sale_price
+add_filter( 'woocommerce_variation_is_purchasable', function( $purchasable, $variation ) {
+    return $variation->get_sale_price() === '' ? false : $purchasable;
+}, 10, 2 );
+
+// Op single product page: toon contact-tekst i.p.v. add-to-cart
+add_action( 'woocommerce_single_product_summary', function() {
+    global $product;
+    if ( $product && ! $product->is_purchasable() ) {
+        echo '<p class="contact-for-pricing">' .
+             esc_html__( 'Contact us for pricing and availability', 'marta' ) .
+             ' <a href="' . esc_url( '/contact/' ) . '">contact</a></p>';
+    }
+}, 35 );
+
+// In shop loop: vervang knop
+add_filter( 'woocommerce_loop_add_to_cart_link', function( $html, $product ) {
+    if ( ! $product->is_purchasable() ) {
+        return '<a href="' . esc_url( '/contact/' ) . '" class="button">' .
+               esc_html__( 'Contact for pricing', 'marta' ) . '</a>';
+    }
+    return $html;
+}, 10, 2 );
+
+// Onderdruk de "out of stock" tekst voor deze producten
+add_filter( 'woocommerce_get_stock_html', function( $html, $product ) {
+    return $product->is_purchasable() ? $html : '';
+}, 10, 2 );
+
 // Wijzig tab-volgorde voor single product
 function marta_change_tabs_order( $tabs ) {
 	$tabs['additional_information']['priority'] = 5;
