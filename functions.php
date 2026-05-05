@@ -73,34 +73,58 @@ function marta_change_out_of_stock_message( $availability, $product ) {
 }
 add_filter( 'woocommerce_get_availability_text', 'marta_change_out_of_stock_message', 10, 2 );
 
+// ============================================================
+// "Contact us for pricing and availability" voor producten
+// zonder sale_price (regulier assortiment dat niet in de outlet zit)
+// ============================================================
 
-// Markeer als niet bestelbaar bij ontbrekende sale_price
-add_filter( 'woocommerce_variation_is_purchasable', function( $purchasable, $variation ) {
-    return $variation->get_sale_price() === '' ? false : $purchasable;
+// 1. Simple products zonder sale_price: niet bestelbaar
+add_filter( 'woocommerce_is_purchasable', function( $purchasable, $product ) {
+	if ( $product->is_type( 'simple' ) && $product->get_sale_price() === '' ) {
+		return false;
+	}
+	return $purchasable;
 }, 10, 2 );
 
-// Op single product page: toon contact-tekst i.p.v. add-to-cart
+// 2. Variable products: per variation de UI-data aanpassen.
+//    is_purchasable=false zorgt dat WC's JS de "Add to basket" knop verbergt;
+//    availability_html overschrijft de standaard "Out of stock" tekst.
+//    Switchen tussen variations blijft werken — anders dan met de oude
+//    woocommerce_variation_is_purchasable filter.
+add_filter( 'woocommerce_available_variation', function( $data, $product, $variation ) {
+	if ( $variation->get_sale_price() === '' ) {
+		$data['is_purchasable']    = false;
+		$data['availability_html'] = '<p class="contact-for-pricing">'
+			. '<a href="' . esc_url( '/contact/' ) . '">' . esc_html__( 'Contact us', 'marta' ) . '</a> '
+			. esc_html__( 'for pricing and availability', 'marta' ) . '</p>';
+	}
+	return $data;
+}, 10, 3 );
+
+// 3. Single product page: toon contact-tekst voor producten die als geheel
+//    niet bestelbaar zijn (simple zonder sale_price, of variable waarvan
+//    WC zelf concludeert dat geen enkele variation koopbaar is).
 add_action( 'woocommerce_single_product_summary', function() {
-    global $product;
-    if ( $product && ! $product->is_purchasable() ) {
-		echo '<p class="contact-for-pricing"><a href="' . esc_url( '/contact/' ) . '">' .
-			 esc_html__( 'Contact us', 'marta' ) .
-			 '</a> ' . esc_html__( 'for pricing and availability', 'marta' ) . '</p>';
-    }
+	global $product;
+	if ( $product && ! $product->is_purchasable() ) {
+		echo '<p class="contact-for-pricing">'
+			. '<a href="' . esc_url( '/contact/' ) . '">' . esc_html__( 'Contact us', 'marta' ) . '</a> '
+			. esc_html__( 'for pricing and availability', 'marta' ) . '</p>';
+	}
 }, 35 );
 
-// In shop loop: vervang knop
+// 4. Shop loop: vervang "Add to basket" met "Contact for pricing" knop.
 add_filter( 'woocommerce_loop_add_to_cart_link', function( $html, $product ) {
-    if ( ! $product->is_purchasable() ) {
-        return '<a href="' . esc_url( '/contact/' ) . '" class="button">' .
-               esc_html__( 'Contact for pricing', 'marta' ) . '</a>';
-    }
-    return $html;
+	if ( ! $product->is_purchasable() ) {
+		return '<a href="' . esc_url( '/contact/' ) . '" class="button">'
+			 . esc_html__( 'Contact for pricing', 'marta' ) . '</a>';
+	}
+	return $html;
 }, 10, 2 );
 
-// Onderdruk de "out of stock" tekst voor deze producten
+// 5. Onderdruk de standaard "out of stock" tekst voor niet-bestelbare producten.
 add_filter( 'woocommerce_get_stock_html', function( $html, $product ) {
-    return $product->is_purchasable() ? $html : '';
+	return $product->is_purchasable() ? $html : '';
 }, 10, 2 );
 
 // Wijzig tab-volgorde voor single product
