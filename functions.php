@@ -73,6 +73,10 @@ function marta_change_out_of_stock_message( $availability, $product ) {
 }
 add_filter( 'woocommerce_get_availability_text', 'marta_change_out_of_stock_message', 10, 2 );
 
+/*
+ * Disabled on 2026-06-12 to make non-outlet products purchasable again.
+ * Remove this block comment wrapper to restore the previous contact-only behavior.
+ *
 // ============================================================
 // "Contact us for pricing and availability" voor producten
 // zonder sale_price (regulier assortiment dat niet in de outlet zit)
@@ -126,6 +130,8 @@ add_filter( 'woocommerce_loop_add_to_cart_link', function( $html, $product ) {
 add_filter( 'woocommerce_get_stock_html', function( $html, $product ) {
 	return $product->is_purchasable() ? $html : '';
 }, 10, 2 );
+
+*/
 
 // Wijzig tab-volgorde voor single product
 function marta_change_tabs_order( $tabs ) {
