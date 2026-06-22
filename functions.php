@@ -197,3 +197,59 @@ add_action(
 );
 
 add_filter( 'gform_enable_legacy_markup', '__return_false' );
+
+/**
+ * Toon een melding op winkelwagen/checkout wanneer er meer dan 1 verschillende
+ * REGULIERE (niet-outlet) productsoort in het mandje zit. Vanaf twee
+ * verschillende artikelen springt het volume naar de volgende verzendstaffel,
+ * waardoor de getoonde verzendkosten te hoog uitvallen. De klant kan dan via
+ * WhatsApp om een aangepast tarief vragen.
+ *
+ * Outlet-producten worden herkend aan hun shipping class slug ('outlet-...')
+ * en tellen NIET mee. Meerdere stuks van dezelfde productsoort tellen als één
+ * soort (die volgen gewoon de staffel uit de Excel).
+ */
+function marta_count_distinct_regular_products() {
+	if ( ! function_exists( 'WC' ) || is_null( WC()->cart ) ) {
+		return 0;
+	}
+
+	$regular_product_ids = array();
+
+	foreach ( WC()->cart->get_cart() as $cart_item ) {
+		$product = isset( $cart_item['data'] ) ? $cart_item['data'] : null;
+		if ( ! $product instanceof WC_Product ) {
+			continue;
+		}
+
+		$slug = (string) $product->get_shipping_class();
+
+		// Outlet-producten overslaan.
+		if ( strpos( $slug, 'outlet-' ) === 0 ) {
+			continue;
+		}
+
+		// Variaties van hetzelfde product tellen als één soort.
+		$regular_product_ids[ $cart_item['product_id'] ] = true;
+	}
+
+	return count( $regular_product_ids );
+}
+
+function marta_multi_product_shipping_notice() {
+	if ( marta_count_distinct_regular_products() <= 1 ) {
+		return;
+	}
+
+	$message = sprintf(
+		'<strong>%s</strong><br>%s',
+		esc_html__( 'Have you combined different products in your cart?', 'marta' ),
+		esc_html__( 'Then the shipping costs shown are probably too high. Just send us a WhatsApp message (bottom right corner) and we\'ll customize them for you.', 'marta' )
+	);
+
+	$message = apply_filters( 'marta_multi_product_shipping_notice_text', $message );
+
+	echo '<div class="woocommerce-info marta-shipping-notice">' . wp_kses_post( $message ) . '</div>';
+}
+add_action( 'woocommerce_before_cart', 'marta_multi_product_shipping_notice', 15 );
+add_action( 'woocommerce_before_checkout_form', 'marta_multi_product_shipping_notice', 15 );
