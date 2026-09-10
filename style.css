@@ -4,7 +4,7 @@ Theme URI: https://martaonline.eu
 Author: Johan van der Wijk
 Author URI: https://vanderwijk.nl
 Description: WordPress theme for marta;
-Version: 3.3.4
+Version: 3.3.5
 Tags: light, minimalistic
 Template: blocksy
 Text Domain: marta
@@ -59,12 +59,12 @@ input[type=submit]:focus {
 
 /* Hide product prices and add to cart button
 ======================================================================*/
-.woocommerce .product .price,
+.product-entry-wrapper .price,
 .woocommerce-single-product .price {
 	display: none;
 }
 
-.woocommerce .product_type_simple.add_to_cart_button,
+.ct-product-add-to-cart .cart,
 .woocommerce .product_type_variable.add_to_cart_button,
 .woocommerce .product_type_grouped.add_to_cart_button,
 .single-product .add_to_cart_button,
