@@ -257,7 +257,8 @@ add_action( 'woocommerce_before_cart', 'marta_multi_product_shipping_notice', 15
 add_action( 'woocommerce_before_checkout_form', 'marta_multi_product_shipping_notice', 15 );
 
 
-function marta_contact_notice_html() {
+add_filter( 'woocommerce_get_stock_html', 'marta_stock_html_to_contact', 99, 2 );
+function marta_stock_html_to_contact( $html, $product ) {
 	return sprintf(
 		'<p class="stock in-stock marta-contact"><a href="%s">%s</a></p>',
 		esc_url( home_url( '/contact/' ) ),
