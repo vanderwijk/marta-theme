@@ -57,6 +57,21 @@ input[type=submit]:focus {
 	display: none;
 }
 
+/* Hide product prices and add to cart button
+======================================================================*/
+.woocommerce .product .price,
+.woocommerce-single-product .price {
+	display: none;
+}
+
+.woocommerce .product_type_simple.add_to_cart_button,
+.woocommerce .product_type_variable.add_to_cart_button,
+.woocommerce .product_type_grouped.add_to_cart_button,
+.single-product .add_to_cart_button,
+.single-product .single_add_to_cart_button {
+	display: none;
+}
+
 /* PAGE
 ======================================================================*/
 
