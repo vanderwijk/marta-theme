@@ -255,3 +255,12 @@ function marta_multi_product_shipping_notice() {
 }
 add_action( 'woocommerce_before_cart', 'marta_multi_product_shipping_notice', 15 );
 add_action( 'woocommerce_before_checkout_form', 'marta_multi_product_shipping_notice', 15 );
+
+
+function marta_contact_notice_html() {
+	return sprintf(
+		'<p class="stock in-stock marta-contact"><a href="%s">%s</a></p>',
+		esc_url( home_url( '/contact/' ) ),
+		esc_html__( 'Contact us for prices and availability', 'marta' )
+	);
+}
